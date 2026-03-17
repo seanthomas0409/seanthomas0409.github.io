@@ -209,6 +209,23 @@ section {
   position: relative;
   z-index: 1;
   filter: drop-shadow(0 0 50px rgba(33, 231, 252, 0.15));
+  animation: heroLogoIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes heroLogoIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+    filter: drop-shadow(0 0 0 rgba(33, 231, 252, 0)) blur(8px);
+  }
+  60% {
+    filter: drop-shadow(0 0 80px rgba(33, 231, 252, 0.3)) blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 50px rgba(33, 231, 252, 0.15)) blur(0);
+  }
 }
 
 .sr-only {
@@ -231,6 +248,20 @@ section {
   position: relative;
   z-index: 1;
   font-weight: 400;
+  animation: heroTaglineIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+
+@keyframes heroTaglineIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+    letter-spacing: 0.3em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: normal;
+  }
 }
 
 .hero__scroll {
@@ -243,6 +274,12 @@ section {
   align-items: center;
   gap: 0.5rem;
   z-index: 1;
+  animation: heroScrollIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.4s both;
+}
+
+@keyframes heroScrollIn {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 .hero__scroll span {
@@ -298,15 +335,22 @@ section {
   background: var(--bg-section);
 }
 
-/* Divider line between projects */
+/* Divider line between projects — animated on scroll */
 .project::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 5%;
-  right: 5%;
+  left: 50%;
+  right: 50%;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(33, 231, 252, 0.12), transparent);
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project.in-view::before {
+  left: 5%;
+  right: 5%;
 }
 
 .project__media {
@@ -354,6 +398,13 @@ section {
 
 .project__media--glow {
   filter: drop-shadow(0 4px 40px rgba(33, 231, 252, 0.1));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project__media--glow:hover {
+  transform: translateY(-4px) scale(1.01);
+  filter: drop-shadow(0 8px 60px rgba(33, 231, 252, 0.18));
 }
 
 .project__number {
@@ -397,12 +448,14 @@ section {
   color: var(--cyan);
   letter-spacing: 0.04em;
   background: rgba(33, 231, 252, 0.04);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .project__tag:hover {
   background: rgba(33, 231, 252, 0.1);
   border-color: rgba(33, 231, 252, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(33, 231, 252, 0.12);
 }
 
 .project__publication {
@@ -417,11 +470,13 @@ section {
   border-radius: 6px;
   border-left: 3px solid;
   border-image: var(--gradient-accent) 1;
-  transition: background 0.3s ease;
+  transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .project__publication:hover {
   background: var(--bg-elevated);
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 4px 20px rgba(33, 231, 252, 0.08);
 }
 
 .project__publication-icon {
@@ -517,6 +572,13 @@ section {
   border-radius: 6px;
   color: var(--text-primary);
   letter-spacing: 0.03em;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.about__skill:hover {
+  border-color: rgba(33, 231, 252, 0.35);
+  transform: translateY(-2px);
+  background: var(--bg-elevated);
 }
 
 .about__links {
@@ -589,13 +651,15 @@ section {
   align-items: baseline;
   padding: 1rem 1.25rem;
   border-radius: 8px;
-  transition: background 0.3s ease;
+  transition: background 0.4s ease, border-left-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   border-left: 2px solid transparent;
 }
 
 .pub-item:hover {
   background: var(--bg-card);
   border-left-color: var(--cyan);
+  transform: translateX(6px);
+  box-shadow: -4px 0 20px rgba(33, 231, 252, 0.06);
 }
 
 .pub-item__year {
@@ -687,12 +751,31 @@ section {
   color: var(--cyan);
   letter-spacing: 0.03em;
   margin-bottom: 2rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.4s ease, color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__cv-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(33, 231, 252, 0.15), transparent);
+  transition: left 0.6s ease;
 }
 
 .contact__cv-btn:hover {
   background: var(--cyan);
   color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(33, 231, 252, 0.25);
+}
+
+.contact__cv-btn:hover::before {
+  left: 100%;
 }
 
 .contact__email {
@@ -741,23 +824,82 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+/* === Scroll Progress Bar === */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--gradient-accent);
+  z-index: 200;
+  transition: none;
+  will-change: width;
+  box-shadow: 0 0 8px rgba(33, 231, 252, 0.4);
+}
+
 /* === Scroll Reveal Animations === */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: blur(4px);
 }
 
 .reveal.is-visible {
   opacity: 1;
+  transform: translateY(0) translateX(0);
+  filter: blur(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+
+/* Directional reveals for alternating project layouts */
+.reveal--from-left {
+  transform: translateX(-60px) translateY(0);
+}
+
+.reveal--from-right {
+  transform: translateX(60px) translateY(0);
+}
+
+.reveal--scale {
+  transform: scale(0.92);
+  filter: blur(6px);
+}
+
+.reveal--scale.is-visible {
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Stagger children (tags, skills, pub items) */
+.reveal--stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal--stagger.is-visible > * {
+  opacity: 1;
   transform: translateY(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal--stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal--stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal--stagger.is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+.reveal--stagger.is-visible > *:nth-child(4) { transition-delay: 0.2s; }
+.reveal--stagger.is-visible > *:nth-child(5) { transition-delay: 0.25s; }
+.reveal--stagger.is-visible > *:nth-child(6) { transition-delay: 0.3s; }
+.reveal--stagger.is-visible > *:nth-child(7) { transition-delay: 0.35s; }
+.reveal--stagger.is-visible > *:nth-child(8) { transition-delay: 0.4s; }
+.reveal--stagger.is-visible > *:nth-child(9) { transition-delay: 0.45s; }
 
 /* === Focus Styles === */
 a:focus-visible,
@@ -911,17 +1053,39 @@ button:focus-visible {
     scroll-snap-type: none;
   }
 
-  .reveal {
+  .reveal,
+  .reveal--stagger > * {
     opacity: 1;
     transform: none;
     transition: none;
+    filter: none;
+  }
+
+  .hero__logo,
+  .hero__tagline,
+  .hero__scroll {
+    animation: none;
   }
 
   .hero__scroll-arrow {
     animation: none;
   }
 
+  .project::before {
+    left: 5%;
+    right: 5%;
+    transition: none;
+  }
+
+  .scroll-progress {
+    display: none;
+  }
+
   video {
     animation: none;
+  }
+
+  [data-parallax] {
+    transform: none !important;
   }
 }
