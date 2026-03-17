@@ -1,6 +1,6 @@
 /* ============================================
    SEAN THOMAS — Portfolio Website
-   Vanilla JS: Scroll reveals, video control, nav
+   Vanilla JS: Scroll reveals, parallax, video control, nav
    ============================================ */
 
 (function () {
@@ -8,7 +8,26 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // --- Scroll Reveal ---
+  // --- Scroll Progress Bar ---
+  function initScrollProgress() {
+    if (prefersReducedMotion) return;
+
+    const bar = document.createElement('div');
+    bar.classList.add('scroll-progress');
+    document.body.prepend(bar);
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // --- Enhanced Scroll Reveal with directional classes ---
   function initReveal() {
     const reveals = document.querySelectorAll('.reveal');
     if (!reveals.length) return;
@@ -18,6 +37,25 @@
       return;
     }
 
+    // Add directional classes to project elements
+    document.querySelectorAll('.project').forEach((project, i) => {
+      const media = project.querySelector('.project__media');
+      const content = project.querySelector('.project__content');
+      if (media && media.classList.contains('reveal')) {
+        media.classList.add('reveal--scale');
+      }
+      // Alternate slide direction for content based on layout
+      if (content) {
+        const contentReveals = content.querySelectorAll('.reveal:not(.reveal--stagger)');
+        const isEven = i % 2 === 1;
+        contentReveals.forEach(el => {
+          if (!el.classList.contains('reveal--from-left') && !el.classList.contains('reveal--from-right')) {
+            el.classList.add(isEven ? 'reveal--from-left' : 'reveal--from-right');
+          }
+        });
+      }
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -25,9 +63,77 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
     reveals.forEach(el => observer.observe(el));
+  }
+
+  // --- Project section in-view (for divider line animation) ---
+  function initProjectInView() {
+    if (prefersReducedMotion) {
+      document.querySelectorAll('.project').forEach(p => p.classList.add('in-view'));
+      return;
+    }
+
+    const projects = document.querySelectorAll('.project');
+    if (!projects.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    projects.forEach(p => observer.observe(p));
+  }
+
+  // --- Parallax Effect (only on revealed elements) ---
+  function initParallax() {
+    if (prefersReducedMotion) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      const viewportHeight = window.innerHeight;
+
+      // Only parallax media that has finished its reveal animation
+      document.querySelectorAll('.project__media.is-visible').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const offset = (elementCenter - viewportHeight / 2) / viewportHeight;
+        el.style.transform = `translateY(${offset * -18}px)`;
+      });
+
+      // Subtle parallax on project numbers
+      document.querySelectorAll('.project__number.is-visible').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const offset = (elementCenter - viewportHeight / 2) / viewportHeight;
+        el.style.transform = `translateY(${offset * -8}px)`;
+      });
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // --- Stagger class injection for tag/skill containers ---
+  function initStaggerClasses() {
+    // Add stagger class to tag containers and skill containers
+    document.querySelectorAll('.project__tags, .about__skills').forEach(el => {
+      if (el.classList.contains('reveal')) {
+        el.classList.add('reveal--stagger');
+      }
+    });
   }
 
   // --- Video Autoplay on Viewport ---
@@ -126,7 +232,11 @@
 
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
+    initScrollProgress();
+    initStaggerClasses();
     initReveal();
+    initProjectInView();
+    initParallax();
     initVideoObserver();
     initNavScroll();
     initActiveNav();
