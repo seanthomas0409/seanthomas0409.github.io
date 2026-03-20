@@ -404,23 +404,38 @@ section {
 }
 
 /* === Project Sections === */
+#projects {
+  background: var(--bg-section);
+  padding: 2rem 0;
+}
+
 .project {
   min-height: 100vh;
   display: grid;
   align-items: center;
-  padding: 6rem max(5%, calc((100% - 1500px) / 2));
+  padding: 4rem max(5%, calc((100% - 1400px) / 2));
   gap: 4rem;
   position: relative;
+  margin: 2.5rem max(3%, calc((100% - 1500px) / 2));
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(0, 56, 184, 0.05),
+              0 8px 40px rgba(0, 56, 184, 0.03);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.project:hover {
+  box-shadow: 0 4px 30px rgba(0, 56, 184, 0.08),
+              0 12px 60px rgba(0, 150, 204, 0.06);
 }
 
 .project:nth-child(odd) {
   grid-template-columns: 1fr 1fr;
-  background: var(--bg-primary);
 }
 
 .project:nth-child(even) {
   grid-template-columns: 1fr 1fr;
-  background: var(--bg-section);
 }
 
 .project:nth-child(even) .project__media {
@@ -431,22 +446,9 @@ section {
   order: 1;
 }
 
-/* Animated divider line */
+/* Animated divider line — replaced by card edges */
 .project::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  right: 50%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 56, 184, 0.12), transparent);
-  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              right 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.project.in-view::before {
-  left: 5%;
-  right: 5%;
+  display: none;
 }
 
 .project__media {
@@ -1075,8 +1077,10 @@ button:focus-visible {
 /* === Responsive === */
 @media (max-width: 1024px) {
   .project {
-    padding: 5rem 5%;
+    padding: 3.5rem 4%;
     gap: 3rem;
+    margin: 2rem 3%;
+    border-radius: 16px;
   }
 
   .about {
@@ -1187,8 +1191,10 @@ button:focus-visible {
   .project:nth-child(even) {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding: 3rem 5%;
+    padding: 2.5rem 5%;
     gap: 2rem;
+    margin: 1.5rem 4%;
+    border-radius: 14px;
   }
 
   .project:nth-child(even) .project__media,
@@ -1367,9 +1373,7 @@ button:focus-visible {
   }
 
   .project::before {
-    left: 5%;
-    right: 5%;
-    transition: none;
+    display: none;
   }
 
   .scroll-progress {
