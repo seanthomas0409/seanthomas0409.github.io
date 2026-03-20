@@ -1220,14 +1220,8 @@ button:focus-visible {
     grid-template-columns: 1fr;
     padding: 1.5rem 5%;
     gap: 1.25rem;
-    margin: 1.5rem calc(4% + 5px) 1.5rem calc(4% - 5px);
-  }
-
-  .project::after {
-    bottom: -6px;
-    left: 6px;
-    right: -6px;
-    top: 6px;
+    margin: 1.5rem 4%;
+    margin-right: calc(4% + 10px);
   }
 
   .project:nth-child(even) .project__media,
@@ -1377,7 +1371,8 @@ button:focus-visible {
   .project:nth-child(even) {
     padding: 1.25rem 4%;
     gap: 1rem;
-    margin: 1.25rem calc(3% + 5px) 1.25rem calc(3% - 5px);
+    margin: 1.25rem 3%;
+    margin-right: calc(3% + 10px);
   }
 
   .project__media video,
