@@ -441,38 +441,43 @@ section {
 
 .project:hover {
   transform: translate(-4px, -4px);
-  background: var(--gradient-accent);
+  background: linear-gradient(135deg, #0080B0, #002A90);
 }
 
 .project:hover .project__title {
   color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .project:hover .project__description {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .project:hover .project__number {
   color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .project:hover .project__tag {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.15);
   color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .project:hover .project__publication {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .project:hover .project__publication-text strong {
   color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .project:hover .project__publication-text span {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .project:hover::after {
