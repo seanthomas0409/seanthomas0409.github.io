@@ -421,6 +421,7 @@ section {
   border: none;
   box-shadow: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  scroll-margin-top: 5rem;
 }
 
 /* Gradient offset shadow — same as hero button ::after */
