@@ -420,12 +420,12 @@ section {
   border-radius: 0;
   border: none;
   box-shadow: none;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease;
   scroll-margin-top: 5rem;
   isolation: isolate;
 }
 
-/* Gradient card behind — matches hero button ::after */
+/* Offset card behind — gradient by default, dark on hover */
 .project::after {
   content: '';
   position: absolute;
@@ -435,15 +435,48 @@ section {
   top: 10px;
   background: var(--gradient-accent);
   z-index: -1;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .project:hover {
   transform: translate(-4px, -4px);
+  background: var(--gradient-accent);
+}
+
+.project:hover .project__title {
+  color: #fff;
+}
+
+.project:hover .project__description {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.project:hover .project__number {
+  color: #fff;
+}
+
+.project:hover .project__tag {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.project:hover .project__publication {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.project:hover .project__publication-text strong {
+  color: #fff;
+}
+
+.project:hover .project__publication-text span {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .project:hover::after {
   transform: translate(2px, 2px);
+  background: var(--bg-dark);
 }
 
 .project:nth-child(odd) {
