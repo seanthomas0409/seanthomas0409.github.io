@@ -488,14 +488,14 @@ section {
   min-width: 0;
   max-width: 50%;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .project__media video,
 .project__media img {
   width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -638,7 +638,7 @@ section {
   margin-top: 0;
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-top: 1px solid rgba(0, 56, 184, 0.06);
 }
 
@@ -1211,7 +1211,7 @@ button:focus-visible {
   .project__media video,
   .project__media img {
     height: 160px;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .project__media--side-by-side {
