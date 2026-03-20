@@ -486,7 +486,7 @@ section {
   flex: 1;
   min-width: 0;
   max-width: 50%;
-  height: 220px;
+  height: calc(220px * 2 + 0.75rem);
   object-fit: cover;
   border-radius: 6px;
 }
@@ -1209,7 +1209,7 @@ button:focus-visible {
 
   .project__media--side-by-side video,
   .project__media--side-by-side img {
-    height: 160px;
+    height: calc(160px * 2 + 0.75rem);
   }
 
   .project__secondary-img,
@@ -1346,7 +1346,7 @@ button:focus-visible {
 
   .project__media--side-by-side video,
   .project__media--side-by-side img {
-    height: 130px;
+    height: calc(130px * 2 + 0.75rem);
   }
 
   .project__secondary-img,
