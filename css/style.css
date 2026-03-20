@@ -486,7 +486,6 @@ section {
 .project__media--side-by-side img {
   flex: 1;
   min-width: 0;
-  max-width: 50%;
   height: calc(220px * 2 + 0.75rem);
   object-fit: cover;
   border-radius: 6px;
