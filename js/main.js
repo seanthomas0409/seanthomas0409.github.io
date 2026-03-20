@@ -230,6 +230,91 @@
     });
   }
 
+  // --- Track individual project views via GoatCounter ---
+  function initProjectTracking() {
+    const projects = document.querySelectorAll('.project[id]');
+    if (!projects.length || typeof window.goatcounter === 'undefined') return;
+
+    const tracked = new Set();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !tracked.has(entry.target.id)) {
+          tracked.add(entry.target.id);
+          if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({
+              path: '/project/' + entry.target.id,
+              title: entry.target.querySelector('.project__title')?.textContent || entry.target.id,
+              event: true
+            });
+          }
+        }
+      });
+    }, { threshold: 0.4 });
+
+    projects.forEach(p => observer.observe(p));
+  }
+
+  // --- Highlight most popular project via GoatCounter API ---
+  function initPopularBadge() {
+    var endpoint = 'https://seanthomas.goatcounter.com/counter/';
+    var projectIds = [];
+
+    document.querySelectorAll('.project[id]').forEach(function (p) {
+      projectIds.push(p.id);
+    });
+
+    if (!projectIds.length) return;
+
+    var counts = {};
+    var loaded = 0;
+
+    projectIds.forEach(function (id) {
+      var path = encodeURIComponent('/project/' + id);
+
+      fetch(endpoint + path + '.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (data && data.count) {
+            counts[id] = parseInt(data.count.replace(/\s/g, ''), 10) || 0;
+          }
+        })
+        .catch(function () {})
+        .finally(function () {
+          loaded++;
+          if (loaded === projectIds.length) {
+            applyBadge(counts);
+          }
+        });
+    });
+
+    function applyBadge(counts) {
+      var topId = null;
+      var topCount = 0;
+
+      Object.keys(counts).forEach(function (id) {
+        if (counts[id] > topCount) {
+          topCount = counts[id];
+          topId = id;
+        }
+      });
+
+      // Need at least 5 views to show the badge
+      if (!topId || topCount < 5) return;
+
+      var project = document.getElementById(topId);
+      if (!project) return;
+
+      var number = project.querySelector('.project__number');
+      if (!number) return;
+
+      var badge = document.createElement('span');
+      badge.className = 'project__popular-badge';
+      badge.textContent = 'Popular';
+      number.parentNode.insertBefore(badge, number.nextSibling);
+    }
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
@@ -242,5 +327,15 @@
     initActiveNav();
     initHamburger();
     initSmoothScroll();
+
+    // Start tracking after GoatCounter loads
+    if (window.goatcounter) {
+      initProjectTracking();
+    } else {
+      window.addEventListener('gc:load', initProjectTracking, { once: true });
+    }
+
+    // Fetch popular badge after a short delay to let GoatCounter initialize
+    setTimeout(initPopularBadge, 1000);
   });
 })();

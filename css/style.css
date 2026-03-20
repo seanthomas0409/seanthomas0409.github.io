@@ -512,6 +512,25 @@ section {
   margin-bottom: 0.75rem;
 }
 
+.project__popular-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--gradient-accent);
+  padding: 0.22rem 0.7rem;
+  border-radius: 100px;
+  margin-bottom: 0.6rem;
+  animation: badge-glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes badge-glow {
+  from { box-shadow: 0 0 6px rgba(0, 150, 204, 0.3); }
+  to   { box-shadow: 0 0 14px rgba(0, 150, 204, 0.5); }
+}
+
 .project__title {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.8rem);
