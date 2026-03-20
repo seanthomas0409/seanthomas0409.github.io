@@ -406,7 +406,7 @@ section {
 /* === Project Sections === */
 #projects {
   background: var(--bg-section);
-  padding: 2rem 0;
+  padding: 3rem 0 4rem;
 }
 
 .project {
@@ -416,44 +416,33 @@ section {
   padding: 4rem max(5%, calc((100% - 1400px) / 2));
   gap: 4rem;
   position: relative;
-  margin: 2.5rem max(3%, calc((100% - 1500px) / 2));
-  background: var(--bg-card);
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 20px rgba(0, 56, 184, 0.05),
-              0 8px 40px rgba(0, 56, 184, 0.03);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.5s ease;
+  margin: 3rem max(3%, calc((100% - 1500px) / 2));
+  background: var(--bg-dark);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Gradient offset shadow — mirrors the hero button ::after effect at card scale */
+/* Gradient offset shadow — same as hero button ::after */
 .project::after {
   content: '';
   position: absolute;
-  top: 8px;
+  bottom: -8px;
   left: 8px;
   right: -8px;
-  bottom: -8px;
-  border-radius: 20px;
+  top: 8px;
   background: var(--gradient-accent);
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translate(0, 0);
+  transition: transform 0.25s ease;
 }
 
 .project:hover {
-  transform: translate(-4px, -4px);
-  border-color: rgba(0, 150, 204, 0.18);
-  box-shadow: 0 8px 40px rgba(0, 56, 184, 0.06),
-              0 20px 70px rgba(0, 150, 204, 0.05);
+  transform: translate(-2px, -2px);
 }
 
 .project:hover::after {
-  opacity: 0.18;
-  transform: translate(2px, 2px);
+  transform: translate(1px, 1px);
 }
 
 .project:nth-child(odd) {
@@ -479,12 +468,12 @@ section {
 
 .project__media {
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  background: var(--bg-elevated);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .project__media--side-by-side {
@@ -524,7 +513,7 @@ section {
 .project__number {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--cyan);
+  color: var(--cyan-bright);
   letter-spacing: 0.12em;
   opacity: 0.8;
   margin-bottom: 0.75rem;
@@ -552,7 +541,7 @@ section {
 .project__title {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.8rem);
-  color: var(--text-primary);
+  color: #E8F2FC;
   line-height: 1.1;
   margin-bottom: 1.25rem;
   font-weight: 800;
@@ -561,7 +550,7 @@ section {
 
 .project__description {
   font-size: 1.02rem;
-  color: var(--text-secondary);
+  color: rgba(180, 210, 240, 0.7);
   line-height: 1.75;
   margin-bottom: 1.5rem;
   max-width: 520px;
@@ -579,11 +568,11 @@ section {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   padding: 0.28rem 0.72rem;
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(0, 170, 238, 0.18);
   border-radius: 100px;
-  color: var(--cyan);
+  color: rgba(180, 215, 240, 0.85);
   letter-spacing: 0.04em;
-  background: rgba(0, 56, 184, 0.04);
+  background: rgba(0, 170, 238, 0.07);
   transition: background 0.3s ease,
               border-color 0.3s ease,
               transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -591,10 +580,10 @@ section {
 }
 
 .project__tag:hover {
-  background: rgba(0, 150, 204, 0.08);
-  border-color: var(--cyan);
+  background: rgba(0, 170, 238, 0.14);
+  border-color: rgba(0, 196, 255, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 150, 204, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 150, 204, 0.2);
 }
 
 .project__publication {
@@ -602,12 +591,12 @@ section {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: rgba(180, 210, 240, 0.6);
   text-decoration: none;
   padding: 0.55rem 1rem;
-  background: var(--bg-card);
+  background: rgba(0, 170, 238, 0.05);
   border-radius: 6px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(0, 170, 238, 0.12);
   border-left: 3px solid;
   border-image: var(--gradient-accent) 1;
   transition: background 0.3s ease,
@@ -616,10 +605,10 @@ section {
 }
 
 .project__publication:hover {
-  background: var(--bg-elevated);
+  background: rgba(0, 170, 238, 0.1);
   transform: translateY(-2px) translateX(4px);
-  box-shadow: 0 4px 18px rgba(0, 56, 184, 0.08);
-  color: var(--text-secondary);
+  box-shadow: 0 4px 18px rgba(0, 150, 204, 0.15);
+  color: rgba(180, 210, 240, 0.85);
 }
 
 .project__publication-icon {
@@ -632,7 +621,7 @@ section {
 }
 
 .project__publication-text strong {
-  color: var(--text-primary);
+  color: #E8F2FC;
   font-weight: 600;
   display: block;
   font-size: 0.82rem;
@@ -640,7 +629,7 @@ section {
 
 .project__publication-text span {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: rgba(180, 210, 240, 0.5);
 }
 
 /* Secondary image/video — uniform treatment */
@@ -1097,7 +1086,6 @@ button:focus-visible {
     padding: 3.5rem 4%;
     gap: 3rem;
     margin: 2rem 3%;
-    border-radius: 16px;
   }
 
   .about {
@@ -1210,8 +1198,7 @@ button:focus-visible {
     min-height: auto;
     padding: 2.5rem 5%;
     gap: 2rem;
-    margin: 1.5rem 4%;
-    border-radius: 14px;
+    margin: 2rem 4%;
   }
 
   .project:nth-child(even) .project__media,
