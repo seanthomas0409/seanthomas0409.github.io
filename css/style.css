@@ -271,15 +271,41 @@ section {
   letter-spacing: 0.01em;
   color: var(--text-primary);
   margin-bottom: 2rem;
-  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* Word-by-word staggered reveal */
+.hero__word {
+  display: inline-block;
+  animation: wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(0.15s + var(--word-i) * 0.1s) both;
+}
+
+@keyframes wordReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) rotateX(45deg);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    filter: blur(0);
+  }
 }
 
 /* Gradient accent words in headline */
 .hero__accent {
   background: var(--gradient-accent);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(0.15s + var(--word-i) * 0.1s) both,
+             shimmer 3s ease-in-out calc(1s + var(--word-i) * 0.1s) infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
 }
 
 .hero__sub {
