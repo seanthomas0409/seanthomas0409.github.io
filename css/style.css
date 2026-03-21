@@ -442,7 +442,6 @@ section {
   gap: 2.5rem;
   position: relative;
   margin: 2.5rem max(5%, calc((100% - 1300px) / 2));
-  margin-right: calc(max(5%, calc((100% - 1300px) / 2)) + 10px);
   background: var(--bg-dark);
   border-radius: 0;
   border: none;
