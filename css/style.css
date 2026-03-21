@@ -442,73 +442,18 @@ section {
   gap: 2.5rem;
   position: relative;
   margin: 2.5rem max(5%, calc((100% - 1300px) / 2));
-  margin-left: calc(max(5%, calc((100% - 1300px) / 2)) + 10px);
   background: var(--bg-dark);
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  transition: transform 0.25s ease, background 0.25s ease;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 170, 238, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 56, 184, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   scroll-margin-top: 5rem;
-  isolation: isolate;
-}
-
-/* Offset card behind — gradient by default, dark on hover */
-.project::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 10px;
-  right: -10px;
-  top: 10px;
-  background: var(--gradient-accent);
-  z-index: -1;
-  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .project:hover {
-  transform: translate(-4px, -4px);
-  background: linear-gradient(135deg, #0080B0, #002A90);
-}
-
-.project:hover .project__title {
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.project:hover .project__description {
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-}
-
-.project:hover .project__number {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.project:hover .project__tag {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.15);
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.project:hover .project__publication {
-  border-color: rgba(255, 255, 255, 0.35);
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.project:hover .project__publication-text strong {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-}
-
-.project:hover .project__publication-text span {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.project:hover::after {
-  transform: translate(2px, 2px);
-  background: var(--bg-dark);
+  transform: translateY(-4px);
+  border-color: rgba(0, 170, 238, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 56, 184, 0.2), 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .project:nth-child(odd) {
@@ -1251,17 +1196,9 @@ button:focus-visible {
     grid-template-columns: 1fr;
     padding: 1.5rem 5%;
     gap: 1.25rem;
-    margin: 1.5rem auto;
-    margin-left: 4%;
-    margin-right: 4%;
+    margin: 1.5rem 4%;
   }
 
-  .project::after {
-    left: 0;
-    right: 0;
-    bottom: -6px;
-    top: 6px;
-  }
 
   .project:nth-child(even) .project__media,
   .project:nth-child(even) .project__content {
