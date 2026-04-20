@@ -12,6 +12,7 @@
   <meta property="og:description" content="PhD Roboticist | Smart Materials & Actuators | Biomimetic Robotics">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sean-thomas.org">
+  <meta property="og:image" content="assets/images/hero-poster.jpg">
 
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -19,21 +20,18 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Skip Link -->
   <a href="#projects" class="skip-link">Skip to projects</a>
 
-  <!-- ═══════════════════════════════════════
-       NAVIGATION
-       ═══════════════════════════════════════ -->
+  <!-- ═══════════════ NAV ═══════════════ -->
   <nav class="nav" aria-label="Main navigation">
-    <a href="#hero">
+    <a href="#hero" aria-label="Home">
       <img src="assets/logo.svg" alt="Sean Thomas logo" class="nav__logo">
     </a>
     <ul class="nav__links">
@@ -43,338 +41,306 @@
       <li><a href="#contact" class="nav__link">Contact</a></li>
     </ul>
     <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════ -->
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero" id="hero">
+    <video class="hero__video"
+           autoplay muted loop playsinline
+           poster="assets/images/hero-poster.jpg">
+      <source src="assets/videos/hero-robot-hands.mp4" type="video/mp4">
+    </video>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
     <div class="hero__content">
-      <p class="hero__eyebrow">PhD Roboticist &nbsp;·&nbsp; Smart Materials &amp; Actuators &nbsp;·&nbsp; Biomimetic Robotics</p>
+      <p class="hero__eyebrow">PhD Roboticist · Smart Materials · Biomimetic Robotics</p>
       <h1 class="hero__headline">
-        <span class="hero__word" style="--word-i:0">Engineering</span>
-        <span class="hero__word" style="--word-i:1">robots</span><br>
-        <span class="hero__word" style="--word-i:2">that</span>
-        <span class="hero__accent hero__word" style="--word-i:3">move</span><br>
-        <span class="hero__word" style="--word-i:4">like</span>
-        <span class="hero__accent hero__word" style="--word-i:5">living</span>
-        <span class="hero__accent hero__word" style="--word-i:6">things.</span>
+        Engineering robots<br>
+        that move like<br>
+        <span class="accent">living things.</span>
       </h1>
       <p class="hero__sub">
         Shape memory. Compliant structure. Biomimetic motion.
         Built to merge with the body, not just support it.
       </p>
       <div class="hero__actions">
-        <a href="#projects" class="hero__btn-primary">View Projects</a>
-        <a href="assets/Sean_Thomas_CV.pdf" download class="hero__btn-secondary">Download CV →</a>
+        <a href="#projects" class="btn btn--primary">View Projects</a>
+        <a href="assets/Sean_Thomas_CV.pdf" download class="btn btn--ghost">Download CV →</a>
       </div>
     </div>
-    <div class="hero__deco" aria-hidden="true">SMA</div>
-    <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-arrow"></div>
-    </div>
+
+    <div class="hero__scroll" aria-hidden="true"><span>Scroll</span></div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       PROJECTS
-       ═══════════════════════════════════════ -->
-  <div id="projects">
+  <!-- ═══════════════ PROJECTS — PINNED REEL ═══════════════ -->
+  <section class="reel" id="projects" aria-labelledby="projects-heading">
+    <div class="reel__intro">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-heading" id="projects-heading">Eight projects<br>at the edge of what<br>machines can be.</h2>
+    </div>
 
-    <!-- PROJECT 01 — Industrial Manipulator -->
-    <section class="project" id="project-01" aria-labelledby="p01-title">
-      <div class="project__media project__media--glow project__media--side-by-side reveal">
-        <video data-autoplay muted loop playsinline preload="metadata">
-          <source src="assets/videos/bistable-gripper-object.mp4" type="video/mp4">
-        </video>
-        <img src="assets/images/project-2-gripper-object.jpg" alt="Bistable gripper grasping object">
-      </div>
-      <div class="project__content">
-        <p class="project__number reveal">01</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p01-title">Industrial Manipulator</h2>
-        <p class="project__description reveal reveal-delay-2">
-          Most grippers waste energy holding what they've already grabbed. This one doesn't. A flexure-based end-effector powered by antagonistic SMA coils, it snaps between open and closed states and consumes power only during the transition, not while maintaining the grasp. The bistable snap-through behaviour is engineered into the structure itself using a precision-buckled beam, analytically modelled via Euler-Bernoulli beam theory, producing a defined force threshold, repeatable actuation, and zero wear over cycles. Compact, lightweight, and passively stable in both states.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Bistable Mechanism</span>
-          <span class="project__tag">SMA Actuation</span>
-          <span class="project__tag">Flexure Design</span>
-          <span class="project__tag">Energy-Efficient Grasping</span>
-          <span class="project__tag">Compliant End-Effector</span>
+    <div class="reel__grid">
+      <!-- STICKY MEDIA COLUMN (primary with corner picture-in-picture secondary) -->
+      <div class="reel__sticky" aria-hidden="true">
+        <div class="reel__video-frame reel__video-frame--primary">
+          <video class="reel__media reel__media--primary" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/bistable-gripper-object.mp4" type="video/mp4">
+          </video>
+          <div class="reel__video-frame reel__video-frame--secondary">
+            <img class="reel__media reel__media--secondary" src="assets/images/project-2-gripper-object.jpg" alt="">
+          </div>
+          <div class="reel__counter"><span class="reel__counter-current">01</span> / 08</div>
         </div>
-        <div class="reveal reveal-delay-4">
-          <a href="https://iopscience.iop.org/article/10.1088/1361-665X/ae3268" target="_blank" rel="noopener" class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+      </div>
+
+      <!-- SCROLLING TEXT COLUMN -->
+      <ol class="reel__list">
+
+        <li class="reel__item is-active" id="project-01"
+            data-primary="assets/videos/bistable-gripper-object.mp4"
+            data-secondary="assets/images/project-2-gripper-object.jpg"
+            data-fit="contain"
+            data-primary-bg="#8C9699"
+            data-secondary-bg="#6F7B89"
+            data-index="01">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/bistable-gripper-object.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">01 / 08</p>
+          <h3 class="reel__item-title">Industrial Manipulator</h3>
+          <p class="reel__item-desc">
+            Most grippers waste energy holding what they've already grabbed. This one doesn't. A flexure-based end-effector powered by antagonistic SMA coils, it snaps between open and closed states and consumes power only during the transition, not while maintaining the grasp. The bistable snap-through behaviour is engineered into the structure itself using a precision-buckled beam, analytically modelled via Euler-Bernoulli beam theory, producing a defined force threshold, repeatable actuation, and zero wear over cycles.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Bistable Mechanism</span>
+            <span class="reel__tag">SMA Actuation</span>
+            <span class="reel__tag">Flexure Design</span>
+            <span class="reel__tag">Compliant End-Effector</span>
+          </div>
+          <a href="https://iopscience.iop.org/article/10.1088/1361-665X/ae3268" target="_blank" rel="noopener" class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>Design and Modelling of a Flexure-based Bistable Gripper Powered by Shape Memory Alloys</strong>
               <span>IOP Smart Materials and Structures, 2025</span>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 02 — Aerial Gripper -->
-    <section class="project" id="project-02" aria-labelledby="p02-title">
-      <div class="project__content">
-        <p class="project__number reveal">02</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p02-title">Aerial Gripper</h2>
-        <p class="project__description reveal reveal-delay-2">
-          Seventeen grams. No motor. No gearbox. No tether. This four-prong compliant gripper is 3D-printed and powered entirely by SMA wire, exploiting the exceptional energy-to-weight ratio of shape memory alloys to deliver meaningful grasping force within an envelope most actuators cannot match. The structure was not designed by hand: topology optimisation algorithmically generated the geometry, finding load paths and material distributions that intuition alone would not reach. A self-biasing design means the gripper passively conforms to cylindrical payloads without active control.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Topology Optimisation</span>
-          <span class="project__tag">SMA Wire Actuation</span>
-          <span class="project__tag">Aerial Manipulation</span>
-          <span class="project__tag">Passive Compliance</span>
-          <span class="project__tag">Algorithmically Generated Design</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <a href="https://ieeexplore.ieee.org/document/9636155" target="_blank" rel="noopener" class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-02"
+            data-primary="assets/videos/drone-gripper.mp4"
+            data-secondary="assets/images/project-3-drone-gripper-render.png"
+            data-index="02">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/drone-gripper.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">02 / 08</p>
+          <h3 class="reel__item-title">Aerial Gripper</h3>
+          <p class="reel__item-desc">
+            Seventeen grams. No motor. No gearbox. No tether. This four-prong compliant gripper is 3D-printed and powered entirely by SMA wire, exploiting the exceptional energy-to-weight ratio of shape memory alloys to deliver meaningful grasping force within an envelope most actuators cannot match. Topology optimisation algorithmically generated the geometry, finding load paths and material distributions that intuition alone would not reach. A self-biasing design means the gripper passively conforms to cylindrical payloads without active control.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Topology Optimisation</span>
+            <span class="reel__tag">SMA Wire Actuation</span>
+            <span class="reel__tag">Aerial Manipulation</span>
+            <span class="reel__tag">Passive Compliance</span>
+          </div>
+          <a href="https://ieeexplore.ieee.org/document/9636155" target="_blank" rel="noopener" class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>A Self-Biasing Shape Memory Alloy Gripper for Lightweight Applications</strong>
               <span>IEEE/RSJ IROS, 2021</span>
             </div>
           </a>
-        </div>
-      </div>
-      <div class="project__media project__media--glow reveal">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/images/project-3-drone-gripper.jpg">
-          <source src="assets/videos/drone-gripper.mp4" type="video/mp4">
-        </video>
-        <img src="assets/images/project-3-drone-gripper-render.png" alt="SMA drone gripper render blue sky" class="project__secondary-img">
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 03 — Artificial Muscle -->
-    <section class="project" id="project-03" aria-labelledby="p03-title">
-      <div class="project__media project__media--glow reveal">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/images/project-4-muscle.jpg">
-          <source src="assets/videos/artificial-muscle.mp4" type="video/mp4">
-        </video>
-        <video data-autoplay muted loop playsinline preload="metadata" class="project__secondary-video">
-          <source src="assets/videos/walking1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="project__content">
-        <p class="project__number reveal">03</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p03-title">Artificial Muscle</h2>
-        <p class="project__description reveal reveal-delay-2">
-          Not a device worn on top of the body. A device implanted inside it. This fully implantable actuator measures just 9 mm in diameter and 30 mm in length, yet generates forces comparable to a native lateral gastrocnemius muscle belly, which it directly replaces via bone anchor and Achilles tendon fixation. Validated in a bipedal animal model through live survival surgeries and cadaveric specimens, the actuator operates at up to 770 mm/s, equivalent to 77 stroke lengths per second. It functions as a tunable clutch: a programmable slack length modulates the timing and magnitude of assistive force during each gait cycle, reducing muscular demand at no additional metabolic cost. Where exoskeletons fail because patients stop wearing them, this device has no compliance problem. It is already inside.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Implantable Actuator</span>
-          <span class="project__tag">Artificial Muscle</span>
-          <span class="project__tag">In Vivo Validation</span>
-          <span class="project__tag">Bone Anchor</span>
-          <span class="project__tag">Assistive Force Control</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <a href="https://doi.org/10.1109/IROS55552.2023.10341584" target="_blank" rel="noopener" class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-03"
+            data-primary="assets/videos/artificial-muscle.mp4"
+            data-secondary="assets/videos/walking1.mp4"
+            data-index="03">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/artificial-muscle.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">03 / 08</p>
+          <h3 class="reel__item-title">Artificial Muscle</h3>
+          <p class="reel__item-desc">
+            Not a device worn on top of the body. A device implanted inside it. This fully implantable actuator measures just 9 mm in diameter and 30 mm in length, yet generates forces comparable to a native lateral gastrocnemius muscle belly, which it directly replaces via bone anchor and Achilles tendon fixation. Validated in a bipedal animal model through live survival surgeries and cadaveric specimens, the actuator operates at up to 770 mm/s, equivalent to 77 stroke lengths per second. It functions as a tunable clutch: a programmable slack length modulates the timing and magnitude of assistive force during each gait cycle.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Implantable Actuator</span>
+            <span class="reel__tag">Artificial Muscle</span>
+            <span class="reel__tag">In Vivo Validation</span>
+            <span class="reel__tag">Assistive Force Control</span>
+          </div>
+          <a href="https://doi.org/10.1109/IROS55552.2023.10341584" target="_blank" rel="noopener" class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>An Implantable Variable Length Actuator for Modulating in Vivo Musculo-Tendon Force</strong>
               <span>IEEE/RSJ IROS, 2023</span>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 04 — Compliant Bone Anchor -->
-    <section class="project" id="project-04" aria-labelledby="p04-title">
-      <div class="project__content">
-        <p class="project__number reveal">04</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p04-title">Compliant Bone Anchor</h2>
-        <p class="project__description reveal reveal-delay-2">
-          This device turns failure into a feature. A staged-deployment bone anchor that activates through a sequence of controlled mechanical breakages, each fracture occurring at a precisely designed load threshold to progressively engage the bone, apply a calibrated tensile preload, and promote long-term osseointegration. The entire sequence is passive, deterministic, and requires no sensors, no electronics, and no external trigger once implanted. A complex, multi-step deployment is encoded entirely in geometry. The mechanism does not need to be told what to do next; it already knows.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Compliant Mechanism</span>
-          <span class="project__tag">Staged Deployment</span>
-          <span class="project__tag">Mechanical Intelligence</span>
-          <span class="project__tag">Passive Actuation</span>
-          <span class="project__tag">Implantable Device</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <div class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-04"
+            data-primary="assets/videos/bone-anchor.mp4"
+            data-secondary="assets/images/project-6-bone-anchor-3.jpg"
+            data-index="04">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/bone-anchor.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">04 / 08</p>
+          <h3 class="reel__item-title">Compliant Bone Anchor</h3>
+          <p class="reel__item-desc">
+            This device turns failure into a feature. A staged-deployment bone anchor that activates through a sequence of controlled mechanical breakages, each fracture occurring at a precisely designed load threshold to progressively engage the bone, apply a calibrated tensile preload, and promote long-term osseointegration. The entire sequence is passive, deterministic, and requires no sensors, no electronics, and no external trigger once implanted. A complex, multi-step deployment is encoded entirely in geometry.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Compliant Mechanism</span>
+            <span class="reel__tag">Staged Deployment</span>
+            <span class="reel__tag">Mechanical Intelligence</span>
+            <span class="reel__tag">Implantable Device</span>
+          </div>
+          <div class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>Implanted Brace Devices, Methods, and Systems (U.S. Provisional)</strong>
               <span>USPTO Patent</span>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="project__media project__media--glow reveal">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/images/project-6-bone-anchor-1.jpg">
-          <source src="assets/videos/bone-anchor.mp4" type="video/mp4">
-        </video>
-        <img src="assets/images/project-6-bone-anchor-3.jpg" alt="Compliant bone anchor close-up" class="project__secondary-img">
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 05 — Artery Crawling Robot -->
-    <section class="project" id="project-05" aria-labelledby="p05-title">
-      <div class="project__media project__media--glow reveal">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/images/project-7-pipe-robot.png">
-          <source src="assets/videos/pipe-robot.mp4" type="video/mp4">
-        </video>
-        <img src="assets/images/project-7-pipe-robot.png" alt="Artery crawling robot render" class="project__secondary-img">
-      </div>
-      <div class="project__content">
-        <p class="project__number reveal">05</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p05-title">Artery Crawling Robot</h2>
-        <p class="project__description reveal reveal-delay-2">
-          What if a robot could walk without a brain? This sensorless, electronics-free crawler navigates the inside of arteries by encoding its gait directly into a compliant structure. There is no controller sequencing the leg movements, no actuator switching logic, and no feedback loop. Instead, the interaction between the robot's compliant legs and a variable tube profile programs the locomotion cycle purely through mechanics. Tune the geometry, change the gait. The robot does not process its environment; it is shaped by it. Zero computation, full autonomy.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Mechanical Intelligence</span>
-          <span class="project__tag">Compliant Mechanism</span>
-          <span class="project__tag">Sensorless Locomotion</span>
-          <span class="project__tag">Endovascular Robotics</span>
-          <span class="project__tag">Passive Gait Programming</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <div class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-05"
+            data-primary="assets/videos/pipe-robot.mp4"
+            data-secondary="assets/images/project-7-pipe-robot.png"
+            data-index="05">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/pipe-robot.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">05 / 08</p>
+          <h3 class="reel__item-title">Artery Crawling Robot</h3>
+          <p class="reel__item-desc">
+            What if a robot could walk without a brain? This sensorless, electronics-free crawler navigates the inside of arteries by encoding its gait directly into a compliant structure. There is no controller sequencing the leg movements, no actuator switching logic, and no feedback loop. Instead, the interaction between the robot's compliant legs and a variable tube profile programs the locomotion cycle purely through mechanics. Tune the geometry, change the gait.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Mechanical Intelligence</span>
+            <span class="reel__tag">Sensorless Locomotion</span>
+            <span class="reel__tag">Endovascular Robotics</span>
+            <span class="reel__tag">Passive Gait</span>
+          </div>
+          <div class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>Implanted Brace Devices, Methods, and Systems (U.S. Provisional)</strong>
               <span>USPTO Patent</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 06 — Inchworm Robot -->
-    <section class="project" id="project-06" aria-labelledby="p06-title">
-      <div class="project__content">
-        <p class="project__number reveal">06</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p06-title">Inchworm Robot</h2>
-        <p class="project__description reveal reveal-delay-2">
-          No microcontroller. No sensors. No battery-hungry control logic. Just a 9.7g robot that crawls. Powered by a shape memory alloy mechanical oscillator, this untethered robot generates a two-anchor crawling gait through a periodic snap-through cycle regulated by a passive magnetic latch. The locomotion emerges entirely from structural mechanics: the oscillation frequency, gait timing, and ground contact are all encoded in the physical design. It is a proof that useful, coordinated motion does not require computation.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">SMA Oscillator</span>
-          <span class="project__tag">Mechanically-Intelligent</span>
-          <span class="project__tag">Untethered Locomotion</span>
-          <span class="project__tag">Bio-Inspired Crawling</span>
-          <span class="project__tag">Passive Dynamics</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <a href="https://doi.org/10.1016/j.sna.2021.113115" target="_blank" rel="noopener" class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-06"
+            data-primary="assets/videos/inchworm.mp4"
+            data-secondary="assets/images/project-1-inchworm-2.jpg"
+            data-index="06">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/inchworm.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">06 / 08</p>
+          <h3 class="reel__item-title">Inchworm Robot</h3>
+          <p class="reel__item-desc">
+            No microcontroller. No sensors. No battery-hungry control logic. Just a 9.7g robot that crawls. Powered by a shape memory alloy mechanical oscillator, this untethered robot generates a two-anchor crawling gait through a periodic snap-through cycle regulated by a passive magnetic latch. The locomotion emerges entirely from structural mechanics: the oscillation frequency, gait timing, and ground contact are all encoded in the physical design.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">SMA Oscillator</span>
+            <span class="reel__tag">Untethered Locomotion</span>
+            <span class="reel__tag">Bio-Inspired Crawling</span>
+            <span class="reel__tag">Passive Dynamics</span>
+          </div>
+          <a href="https://doi.org/10.1016/j.sna.2021.113115" target="_blank" rel="noopener" class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>An Untethered Mechanically-Intelligent Inchworm Robot Powered by a Shape Memory Alloy Oscillator</strong>
               <span>Sensors and Actuators A: Physical, 2021</span>
             </div>
           </a>
-        </div>
-      </div>
-      <div class="project__media project__media--glow reveal">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/images/project-1-inchworm.jpg">
-          <source src="assets/videos/inchworm.mp4" type="video/mp4">
-        </video>
-        <img src="assets/images/project-1-inchworm-2.jpg" alt="Inchworm robot walking demo" class="project__secondary-img">
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 07 — Biosynthetic Thumb -->
-    <section class="project" id="project-07" aria-labelledby="p07-title">
-      <div class="project__content">
-        <p class="project__number reveal">07</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p07-title">Biosynthetic Thumb</h2>
-        <p class="project__description reveal reveal-delay-2">
-          Traditional prosthetics are designed to fit a body that was never designed to receive them. This project rejects that premise. The biosynthetic thumb co-engineers the surgical intervention and the device in parallel: the procedure creates an optimised anchor and sensory interface, while the prosthesis geometry is built around the modified anatomy. Neither is designed around the other; both are designed together. The result is improved mechanical coupling, better proprioceptive feedback, and a device that functions as part of the body rather than an attachment to it.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Prosthetics</span>
-          <span class="project__tag">Co-Design</span>
-          <span class="project__tag">Bionic Systems</span>
-          <span class="project__tag">Surgical Robotics</span>
-          <span class="project__tag">Human-Machine Interface</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <a href="https://www.nature.com/articles/s44385-025-00031-z" target="_blank" rel="noopener" class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-07"
+            data-primary="assets/images/project-8-thumb-real.jpg"
+            data-secondary="assets/images/project-8-thumb.jpg"
+            data-index="07">
+          <img class="reel__item-video" src="assets/images/project-8-thumb-real.jpg" alt="Biosynthetic thumb prosthesis">
+          <p class="reel__item-number">07 / 08</p>
+          <h3 class="reel__item-title">Biosynthetic Thumb</h3>
+          <p class="reel__item-desc">
+            Traditional prosthetics are designed to fit a body that was never designed to receive them. This project rejects that premise. The biosynthetic thumb co-engineers the surgical intervention and the device in parallel: the procedure creates an optimised anchor and sensory interface, while the prosthesis geometry is built around the modified anatomy. Neither is designed around the other; both are designed together.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Prosthetics</span>
+            <span class="reel__tag">Co-Design</span>
+            <span class="reel__tag">Bionic Systems</span>
+            <span class="reel__tag">Human-Machine Interface</span>
+          </div>
+          <a href="https://www.nature.com/articles/s44385-025-00031-z" target="_blank" rel="noopener" class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>A Biosynthetic Thumb Prosthesis</strong>
               <span>npj Biomedical Innovations, 2025</span>
             </div>
           </a>
-        </div>
-      </div>
-      <div class="project__media project__media--glow reveal">
-        <img src="assets/images/project-8-thumb-real.jpg" alt="Biosynthetic thumb prosthesis real photograph">
-        <img src="assets/images/project-8-thumb.jpg" alt="Biosynthetic thumb prosthesis illustration" class="project__secondary-img">
-      </div>
-    </section>
+        </li>
 
-    <!-- PROJECT 08 — Affordable ExoGlove -->
-    <section class="project" id="project-08" aria-labelledby="p08-title">
-      <div class="project__media project__media--glow reveal">
-        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/images/project-5-exoglove.jpg">
-          <source src="assets/videos/exoglove.mp4" type="video/mp4">
-        </video>
-        <img src="assets/images/project-5-exoglove-2.jpg" alt="3D printed exo-glove prototype on hand" class="project__secondary-img">
-      </div>
-      <div class="project__content">
-        <p class="project__number reveal">08</p>
-        <h2 class="project__title reveal reveal-delay-1" id="p08-title">Affordable ExoGlove</h2>
-        <p class="project__description reveal reveal-delay-2">
-          One print. No support material. No assembly. This compliant finger orthosis is designed to assist both flexion and extension from a single 3D-printed part, using a sinusoidal flexure pattern that bends naturally with the finger while transmitting force in both directions. There are no hinges, no fasteners, and no post-processing. FEA-driven parametric optimisation across wall thickness, width, and pattern spacing gives full control over device stiffness without redesign, making it trivially adaptable to different users and actuator pairings. It is a demonstration of how compliant topology can replace entire subassemblies without sacrificing function.
-        </p>
-        <div class="project__tags reveal reveal-delay-3">
-          <span class="project__tag">Compliant Mechanism</span>
-          <span class="project__tag">3D-Printed Orthosis</span>
-          <span class="project__tag">Finger Rehabilitation</span>
-          <span class="project__tag">FEA-Optimised Design</span>
-          <span class="project__tag">Bidirectional Force Assistance</span>
-        </div>
-        <div class="reveal reveal-delay-4">
-          <a href="https://doi.org/10.1109/EMBC58623.2025.11254189" target="_blank" rel="noopener" class="project__publication">
-            <svg class="project__publication-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <div class="project__publication-text">
+        <li class="reel__item" id="project-08"
+            data-primary="assets/videos/exoglove.mp4"
+            data-secondary="assets/images/project-5-exoglove-2.jpg"
+            data-index="08">
+          <video class="reel__item-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/exoglove.mp4" type="video/mp4">
+          </video>
+          <p class="reel__item-number">08 / 08</p>
+          <h3 class="reel__item-title">Affordable ExoGlove</h3>
+          <p class="reel__item-desc">
+            One print. No support material. No assembly. This compliant finger orthosis is designed to assist both flexion and extension from a single 3D-printed part, using a sinusoidal flexure pattern that bends naturally with the finger while transmitting force in both directions. FEA-driven parametric optimisation across wall thickness, width, and pattern spacing gives full control over device stiffness without redesign.
+          </p>
+          <div class="reel__item-tags">
+            <span class="reel__tag">Compliant Mechanism</span>
+            <span class="reel__tag">3D-Printed Orthosis</span>
+            <span class="reel__tag">Finger Rehabilitation</span>
+            <span class="reel__tag">FEA-Optimised</span>
+          </div>
+          <a href="https://doi.org/10.1109/EMBC58623.2025.11254189" target="_blank" rel="noopener" class="reel__pub">
+            <svg class="reel__pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <div class="reel__pub-text">
               <strong>A 3D-Printed Hand Exoskeleton for Affordable and Accessible Upper Limb Rehabilitation</strong>
               <span>IEEE EMBC, 2025</span>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
+        </li>
 
-  </div><!-- /projects -->
+      </ol>
+    </div>
+  </section>
 
-  <!-- ═══════════════════════════════════════
-       ABOUT
-       ═══════════════════════════════════════ -->
+  <!-- ═══════════════ ABOUT ═══════════════ -->
   <section class="about" id="about" aria-labelledby="about-heading">
-    <div class="about__image-wrapper reveal">
+    <div class="about__image-wrapper">
       <img src="assets/images/headshot.png" alt="Sean Thomas portrait" class="about__image"
            onerror="this.style.display='none'">
     </div>
     <div>
-      <p class="about__label reveal">About</p>
-      <h2 class="about__heading reveal reveal-delay-1" id="about-heading">Building the Future<br>of Smart Robotics</h2>
-      <p class="about__text reveal reveal-delay-2">
+      <p class="section-label">About</p>
+      <h2 class="section-heading" id="about-heading">Building the future<br>of smart robotics.</h2>
+      <p class="about__text">
         I design robots that move like living things. By encoding intelligence directly into
-        materials and structures, using smart alloys, compliant mechanisms, and biomimetic design,
+        materials and structures — smart alloys, compliant mechanisms, biomimetic design —
         I build systems that don't just assist the body, but become part of it. From implantable
         actuators to prosthetic limbs, my work sits at the intersection of humanoid robotics
         and human augmentation.
       </p>
-      <p class="about__text reveal reveal-delay-2">
-        My goal is to build the next generation of physical AGI and push the boundaries of what machines can do.
-        I hold a Ph.D. in Robotics and am the inventor
-        of 3 patents and author of 20 peer-reviewed publications.
+      <p class="about__text">
+        My goal is to build the next generation of physical AGI and push the boundaries of what
+        machines can do. I hold a Ph.D. in Robotics and am the inventor of 3 patents and author
+        of 20 peer-reviewed publications.
       </p>
-      <div class="about__skills reveal reveal-delay-3">
+      <div class="about__skills">
         <span class="about__skill">Smart Materials</span>
         <span class="about__skill">Mechanical Design</span>
         <span class="about__skill">Finite Element Modeling</span>
@@ -385,188 +351,85 @@
         <span class="about__skill">Topology Optimization</span>
         <span class="about__skill">System Identification</span>
       </div>
-      <div class="about__links reveal reveal-delay-4">
-        <a href="https://scholar.google.com/citations?user=8MRq7sUAAAAJ&hl=en" target="_blank" rel="noopener" class="about__link">
-          → Google Scholar
-        </a>
-        <a href="https://www.linkedin.com/in/sean-thomas-48723452/" target="_blank" rel="noopener" class="about__link">
-          → LinkedIn
-        </a>
+      <div class="about__links">
+        <a href="https://scholar.google.com/citations?user=8MRq7sUAAAAJ&hl=en" target="_blank" rel="noopener" class="about__link">→ Google Scholar</a>
+        <a href="https://www.linkedin.com/in/sean-thomas-48723452/" target="_blank" rel="noopener" class="about__link">→ LinkedIn</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       PUBLICATIONS
-       ═══════════════════════════════════════ -->
+  <!-- ═══════════════ PUBLICATIONS ═══════════════ -->
   <section class="publications" id="publications" aria-labelledby="pub-heading">
-    <p class="publications__label reveal">Research</p>
-    <h2 class="publications__heading reveal reveal-delay-1" id="pub-heading">Publications</h2>
-    <p class="publications__subtext reveal reveal-delay-2">
+    <p class="section-label">Research</p>
+    <h2 class="section-heading" id="pub-heading">Publications</h2>
+    <p class="publications__subtext">
       20 peer-reviewed publications and 3 patents across top robotics venues.
       <a href="https://scholar.google.com/citations?user=8MRq7sUAAAAJ&hl=en" target="_blank" rel="noopener">View on Google Scholar →</a>
     </p>
 
     <div class="publications__list">
-      <!-- Patents -->
-      <div class="pub-item pub-item--patent reveal">
+      <div class="pub-item pub-item--patent">
         <span class="pub-item__year">Patent</span>
         <span class="pub-item__title">Microgripper Device (EP 4 026 659 A1)</span>
         <span class="pub-item__venue">European Patent Office</span>
       </div>
-      <div class="pub-item pub-item--patent reveal">
+      <div class="pub-item pub-item--patent">
         <span class="pub-item__year">Patent</span>
         <span class="pub-item__title">Implantable Device for Musculoskeletal Rehabilitation (U.S. Provisional)</span>
         <span class="pub-item__venue">USPTO</span>
       </div>
-      <div class="pub-item pub-item--patent reveal">
+      <div class="pub-item pub-item--patent">
         <span class="pub-item__year">Patent</span>
         <span class="pub-item__title">Implanted Brace Devices, Methods, and Systems (U.S. Provisional)</span>
         <span class="pub-item__venue">USPTO</span>
       </div>
-      <!-- 2025 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2025</span>
-        <span class="pub-item__title">A Framework for Implantable Robotics Using Mechanical Intelligence</span>
-        <span class="pub-item__venue">Science Robotics (To be submitted)</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2025</span>
-        <span class="pub-item__title">Design and Modelling of a Flexure-based Bistable Gripper Powered by Shape Memory Alloys</span>
-        <span class="pub-item__venue">IOP Smart Mater. &amp; Struct.</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2025</span>
-        <span class="pub-item__title">Enhanced Actuation Frequency in Actuators Using Twisted and Coiled SMA Artificial Muscles</span>
-        <span class="pub-item__venue">IOP Smart Mater. &amp; Struct.</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2025</span>
-        <span class="pub-item__title">A Biosynthetic Thumb Prosthesis</span>
-        <span class="pub-item__venue">npj Biomedical Innovations</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2025</span>
-        <span class="pub-item__title">A 3D-Printed Hand Exoskeleton for Affordable and Accessible Upper Limb Rehabilitation</span>
-        <span class="pub-item__venue">IEEE EMBC</span>
-      </div>
-      <!-- 2024 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2024</span>
-        <span class="pub-item__title">Improvement of Shape Memory Alloy (NiTi) Actuation Frequency Using Highly Thermally Conductive Metal Layer</span>
-        <span class="pub-item__venue">IEEE ICEMS</span>
-      </div>
-      <!-- 2023 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2023</span>
-        <span class="pub-item__title">An Implantable Variable Length Actuator for Modulating in Vivo Musculo-Tendon Force in a Bipedal Animal Model</span>
-        <span class="pub-item__venue">IEEE/RSJ IROS</span>
-      </div>
-      <!-- 2022 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2022</span>
-        <span class="pub-item__title">Fabrication and Characterization of the Kirigami-Inspired SMA-Powered Actuator</span>
-        <span class="pub-item__venue">IEEE Trans. Industry Apps</span>
-      </div>
-      <!-- 2021 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2021</span>
-        <span class="pub-item__title">An Untethered Mechanically-Intelligent Inchworm Robot Powered by a Shape Memory Alloy Oscillator</span>
-        <span class="pub-item__venue">Sensors &amp; Actuators A</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2021</span>
-        <span class="pub-item__title">Designing Compliant Mechanisms Composed of Shape Memory Alloy and Actuated by Induction Heating</span>
-        <span class="pub-item__venue">IOP Smart Mater. &amp; Struct.</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2021</span>
-        <span class="pub-item__title">Characterization and Verification of Eddy-Current Position Sensing for Magnetic Levitation</span>
-        <span class="pub-item__venue">IEEE Trans. Industry Apps</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2021</span>
-        <span class="pub-item__title">A Self-Biasing Shape Memory Alloy Gripper for Lightweight Applications</span>
-        <span class="pub-item__venue">IEEE/RSJ IROS</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2021</span>
-        <span class="pub-item__title">Modelling and Fabrication of a Kirigami-Inspired Shape Memory Alloy Actuator</span>
-        <span class="pub-item__venue">IEEE ICEMS</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2021</span>
-        <span class="pub-item__title">Control-Free Mechanical Oscillator Powered by Shape Memory Alloys</span>
-        <span class="pub-item__venue">IEEE/ASME AIM</span>
-      </div>
-      <!-- 2020 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2020</span>
-        <span class="pub-item__title">Integrated, Eddy-Current-Based Sensing of Rotor Position for Magnetic Levitation</span>
-        <span class="pub-item__venue">IEEE ECCE</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2020</span>
-        <span class="pub-item__title">Shape Memory Effect of Benchmark Compliant Mechanisms Designed with Topology Optimization</span>
-        <span class="pub-item__venue">IEEE/ASME AIM</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2020</span>
-        <span class="pub-item__title">Multi-Output Compliant Shape Memory Alloy Bias-Spring Actuators</span>
-        <span class="pub-item__venue">IEEE/ASME AIM</span>
-      </div>
-      <!-- 2019 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2019</span>
-        <span class="pub-item__title">Design Analysis of a Shape Memory Alloy Bias-Spring Linear Actuator</span>
-        <span class="pub-item__venue">IEEE LDIA</span>
-      </div>
-      <!-- 2018 -->
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2018</span>
-        <span class="pub-item__title">Actuation Displacement Analysis of a Self-Switching Shape Memory Alloy Buckled Beam</span>
-        <span class="pub-item__venue">IEEE ICEMS</span>
-      </div>
-      <div class="pub-item reveal">
-        <span class="pub-item__year">2018</span>
-        <span class="pub-item__title">Analysis and Reduction of Time Response in Thermally Activated Shape Memory Alloys</span>
-        <span class="pub-item__venue">IEEE ICEMS</span>
-      </div>
+      <div class="pub-item"><span class="pub-item__year">2025</span><span class="pub-item__title">A Framework for Implantable Robotics Using Mechanical Intelligence</span><span class="pub-item__venue">Science Robotics (To be submitted)</span></div>
+      <div class="pub-item"><span class="pub-item__year">2025</span><span class="pub-item__title">Design and Modelling of a Flexure-based Bistable Gripper Powered by Shape Memory Alloys</span><span class="pub-item__venue">IOP Smart Mater. &amp; Struct.</span></div>
+      <div class="pub-item"><span class="pub-item__year">2025</span><span class="pub-item__title">Enhanced Actuation Frequency in Actuators Using Twisted and Coiled SMA Artificial Muscles</span><span class="pub-item__venue">IOP Smart Mater. &amp; Struct.</span></div>
+      <div class="pub-item"><span class="pub-item__year">2025</span><span class="pub-item__title">A Biosynthetic Thumb Prosthesis</span><span class="pub-item__venue">npj Biomedical Innovations</span></div>
+      <div class="pub-item"><span class="pub-item__year">2025</span><span class="pub-item__title">A 3D-Printed Hand Exoskeleton for Affordable and Accessible Upper Limb Rehabilitation</span><span class="pub-item__venue">IEEE EMBC</span></div>
+      <div class="pub-item"><span class="pub-item__year">2024</span><span class="pub-item__title">Improvement of Shape Memory Alloy (NiTi) Actuation Frequency Using Highly Thermally Conductive Metal Layer</span><span class="pub-item__venue">IEEE ICEMS</span></div>
+      <div class="pub-item"><span class="pub-item__year">2023</span><span class="pub-item__title">An Implantable Variable Length Actuator for Modulating in Vivo Musculo-Tendon Force in a Bipedal Animal Model</span><span class="pub-item__venue">IEEE/RSJ IROS</span></div>
+      <div class="pub-item"><span class="pub-item__year">2022</span><span class="pub-item__title">Fabrication and Characterization of the Kirigami-Inspired SMA-Powered Actuator</span><span class="pub-item__venue">IEEE Trans. Industry Apps</span></div>
+      <div class="pub-item"><span class="pub-item__year">2021</span><span class="pub-item__title">An Untethered Mechanically-Intelligent Inchworm Robot Powered by a Shape Memory Alloy Oscillator</span><span class="pub-item__venue">Sensors &amp; Actuators A</span></div>
+      <div class="pub-item"><span class="pub-item__year">2021</span><span class="pub-item__title">Designing Compliant Mechanisms Composed of Shape Memory Alloy and Actuated by Induction Heating</span><span class="pub-item__venue">IOP Smart Mater. &amp; Struct.</span></div>
+      <div class="pub-item"><span class="pub-item__year">2021</span><span class="pub-item__title">Characterization and Verification of Eddy-Current Position Sensing for Magnetic Levitation</span><span class="pub-item__venue">IEEE Trans. Industry Apps</span></div>
+      <div class="pub-item"><span class="pub-item__year">2021</span><span class="pub-item__title">A Self-Biasing Shape Memory Alloy Gripper for Lightweight Applications</span><span class="pub-item__venue">IEEE/RSJ IROS</span></div>
+      <div class="pub-item"><span class="pub-item__year">2021</span><span class="pub-item__title">Modelling and Fabrication of a Kirigami-Inspired Shape Memory Alloy Actuator</span><span class="pub-item__venue">IEEE ICEMS</span></div>
+      <div class="pub-item"><span class="pub-item__year">2021</span><span class="pub-item__title">Control-Free Mechanical Oscillator Powered by Shape Memory Alloys</span><span class="pub-item__venue">IEEE/ASME AIM</span></div>
+      <div class="pub-item"><span class="pub-item__year">2020</span><span class="pub-item__title">Integrated, Eddy-Current-Based Sensing of Rotor Position for Magnetic Levitation</span><span class="pub-item__venue">IEEE ECCE</span></div>
+      <div class="pub-item"><span class="pub-item__year">2020</span><span class="pub-item__title">Shape Memory Effect of Benchmark Compliant Mechanisms Designed with Topology Optimization</span><span class="pub-item__venue">IEEE/ASME AIM</span></div>
+      <div class="pub-item"><span class="pub-item__year">2020</span><span class="pub-item__title">Multi-Output Compliant Shape Memory Alloy Bias-Spring Actuators</span><span class="pub-item__venue">IEEE/ASME AIM</span></div>
+      <div class="pub-item"><span class="pub-item__year">2019</span><span class="pub-item__title">Design Analysis of a Shape Memory Alloy Bias-Spring Linear Actuator</span><span class="pub-item__venue">IEEE LDIA</span></div>
+      <div class="pub-item"><span class="pub-item__year">2018</span><span class="pub-item__title">Actuation Displacement Analysis of a Self-Switching Shape Memory Alloy Buckled Beam</span><span class="pub-item__venue">IEEE ICEMS</span></div>
+      <div class="pub-item"><span class="pub-item__year">2018</span><span class="pub-item__title">Analysis and Reduction of Time Response in Thermally Activated Shape Memory Alloys</span><span class="pub-item__venue">IEEE ICEMS</span></div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       CONTACT
-       ═══════════════════════════════════════ -->
+  <!-- ═══════════════ CONTACT ═══════════════ -->
   <section class="contact" id="contact" aria-labelledby="contact-heading">
-    <p class="contact__label reveal">Get in Touch</p>
-    <h2 class="contact__heading reveal reveal-delay-1" id="contact-heading">Let's Collaborate</h2>
-    <p class="contact__text reveal reveal-delay-2">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="contact__heading" id="contact-heading">Let's collaborate.</h2>
+    <p class="contact__text">
       Open to new roles, research collaborations, and consulting opportunities
       in humanoid robotics and biomedical devices.
     </p>
-    <a href="assets/Sean_Thomas_CV.pdf" download class="contact__cv-btn reveal reveal-delay-3">
-      Download CV (PDF)
-    </a>
-    <a href="mailto:seanthomas0409@gmail.com" class="contact__email reveal reveal-delay-3">
-      seanthomas0409@gmail.com
-    </a>
-    <p class="contact__location reveal reveal-delay-3">Los Angeles, California</p>
-    <div class="contact__socials reveal reveal-delay-4">
+    <a href="assets/Sean_Thomas_CV.pdf" download class="contact__cv-btn">Download CV (PDF)</a>
+    <br>
+    <a href="mailto:seanthomas0409@gmail.com" class="contact__email">seanthomas0409@gmail.com</a>
+    <p class="contact__location">Los Angeles, California</p>
+    <div class="contact__socials">
       <a href="https://scholar.google.com/citations?user=8MRq7sUAAAAJ&hl=en" target="_blank" rel="noopener" class="contact__social">Google Scholar</a>
       <a href="https://www.linkedin.com/in/sean-thomas-48723452/" target="_blank" rel="noopener" class="contact__social">LinkedIn</a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2026 Sean Thomas. All rights reserved.</p>
+    <p>© 2026 Sean Thomas</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
 
-  <!-- GoatCounter Analytics (privacy-friendly, no cookies) -->
   <script data-goatcounter="https://seanthomas.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>
