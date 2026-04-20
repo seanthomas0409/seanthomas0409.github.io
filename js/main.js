@@ -92,12 +92,15 @@
     const isVideo = (src) => /\.(mp4|webm|mov)(\?|$)/i.test(src);
     const currentSrc = { primary: '', secondary: '' };
 
-    function setSlot(frame, slot, src, fit, bg) {
+    function setSlot(frame, slot, src, fit, bg, scale) {
       if (!src || currentSrc[slot] === src) {
-        // Still apply style tweaks in case fit/bg changed between items of same src
+        // Still apply style tweaks in case fit/bg/scale changed between items of same src
         frame.style.backgroundColor = bg || '';
         const cur = frame.querySelector('.reel__media');
-        if (cur) cur.style.objectFit = fit || 'cover';
+        if (cur) {
+          cur.style.objectFit = fit || 'cover';
+          cur.style.transform = scale ? `scale(${scale})` : '';
+        }
         return;
       }
       const wantVideo = isVideo(src);
@@ -133,6 +136,7 @@
           el.src = src;
         }
         el.style.objectFit = fit || 'cover';
+        el.style.transform = scale ? `scale(${scale})` : '';
         frame.style.backgroundColor = bg || '';
         currentSrc[slot] = src;
         requestAnimationFrame(() => el.classList.remove('is-swapping'));
@@ -143,8 +147,8 @@
       items.forEach(i => i.classList.toggle('is-active', i === item));
       if (counter) counter.textContent = item.dataset.index || '01';
       const fit = item.dataset.fit;
-      setSlot(frames.primary, 'primary', item.dataset.primary, fit, item.dataset.primaryBg);
-      setSlot(frames.secondary, 'secondary', item.dataset.secondary, fit, item.dataset.secondaryBg);
+      setSlot(frames.primary, 'primary', item.dataset.primary, fit, item.dataset.primaryBg, item.dataset.primaryScale);
+      setSlot(frames.secondary, 'secondary', item.dataset.secondary, fit, item.dataset.secondaryBg, item.dataset.secondaryScale);
     }
 
     const observer = new IntersectionObserver((entries) => {
