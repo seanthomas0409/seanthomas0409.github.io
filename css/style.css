@@ -161,22 +161,15 @@ ol, ul { list-style: none; }
 .hero__headline {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.8rem, 4.6vw, 4rem);
-  line-height: 1.08;
+  font-size: clamp(2.4rem, 6.5vw, 5.6rem);
+  line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--fg);
   margin-bottom: 32px;
 }
-.hero__headline em {
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-variation-settings: "opsz" 144;
-  font-size: 1.18em;
+.hero__headline .accent {
   color: var(--accent);
   text-shadow: 0 0 36px var(--glow), 0 0 12px var(--glow-soft);
-  letter-spacing: -0.01em;
-  line-height: 0.95;
 }
 .hero__sub {
   font-family: var(--font-body);
