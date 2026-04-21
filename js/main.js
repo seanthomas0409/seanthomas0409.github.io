@@ -191,6 +191,16 @@
     items.forEach(i => observer.observe(i));
   }
 
+  // --- Hero video: play at 0.25x for a slow, cinematic loop ---
+  function initHeroVideoSpeed() {
+    const v = document.querySelector('.hero__video');
+    if (!v) return;
+    const apply = () => { v.playbackRate = 0.5; };
+    apply();
+    v.addEventListener('loadedmetadata', apply);
+    v.addEventListener('play', apply);
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
     initNavScroll();
@@ -198,6 +208,7 @@
     initHamburger();
     initSmoothScroll();
     initReelVideoSwap();
+    initHeroVideoSpeed();
 
     if (window.goatcounter) {
       initProjectTracking();
